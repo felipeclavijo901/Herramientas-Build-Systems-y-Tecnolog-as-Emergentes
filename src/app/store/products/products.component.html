@@ -1,0 +1,28 @@
+<div id="container">
+  <div class="container h-100">
+    <app-menu></app-menu>
+    <div class="main bg-light">
+      <div id="products">
+        <div *ngFor="let productData of product">
+          <h3>{{ productData.name }}</h3>
+          <hr />
+          <div class="card mb-3" style="max-width: 100%">
+            <div class=" row no-gutters">
+              <div class="col-md-6 border border-dark">
+                <img src="/assets/img/{{ productData.imageName }}" class="card-img" alt="..." />
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">Precio: ${{ productData.price }}</h5>
+                  <h5 class="card-title">Unidades disponibles: {{ productData.quantity }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a [routerLink]="['/store']" class="btn btn-secondary btn-lg">Atrás</a>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

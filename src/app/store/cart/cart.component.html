@@ -1,0 +1,39 @@
+<div id="container">
+   <div class="container h-100">
+      <app-menu></app-menu>
+      <div class="main bg-light">
+         <div id="cart">
+            <div>
+               <h3>Carrito de compras</h3>
+               <hr />
+               <div class="row container">
+                  <div class="col-sm-12 col-md-6">
+                     <div class="card mb-3" *ngFor="let product of cart.products">
+                        <div class="row no-gutters">
+                           <div class="col-md-4">
+                              <img src="/assets/img/{{ product.imageName }}" class="card-img" alt="..." />
+                           </div>
+                           <div class="col-md-8">
+                              <div class="card-body">
+                                 <h5 class="card-title">{{ product.name }}</h5>
+                                 <p><small class="text-muted font-weight-bold">Unidades:
+                                       {{ product.quantity }}</small></p>
+                                 <p><small class="text-muted font-weight-bold">Subtotal:
+                                       ${{ product.quantity * product.price }}</small></p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                     <h3>Total: ${{ cart.total }}</h3>
+                     <button type="button" (click)="cancel()" class="btn btn-outline-dark">Cancelar</button>
+                     <button type="button" (click)="pay()" class="btn btn-outline-dark">Pagar</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <app-footer></app-footer>
+   </div>
+</div>
